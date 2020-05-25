@@ -2,7 +2,7 @@
 
 Observar o arquivo de rotas "web".
 
-Nele foram 2 formas de 'associar' ou 'relacionar' uma
+Nele foram codificas 2 formas de 'associar' ou 'relacionar' uma
 instância de Produtos em Categoria e vice-versa.
 
 1ª FORMA = Usando o método 'ASSOCIATE' 
