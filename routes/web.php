@@ -84,16 +84,16 @@ Route::get('/categoriasprodutos/json', function(){
 });
 
 
-// 2 FORMAS de Associar Instâncias entre si.
+// 2 FORMAS de Associar as instâncias de Categoria e Produto entre si.
 
-//1ª FORMA: Usando o método 'ASSOCIATE' ( maneira + elegante)
+//1ª FORMA: Usando o método 'ASSOCIATE()' + 'SAVE()' via PRODUTO ( maneira + elegante)
 
 // Associar uma instância de 'Categoria' a um Produto usando o método 'ASSOCIATE'
 Route::get('/associarcategorianoproduto', function(){
     $cat = Categoria::find(3); // Categoria informática
 
     $p = new Produto();
-    $p->nome = "Meu novo Produto";
+    $p->nome = "Meu segundo Produto";
     $p->preco = 99.99;
     $p->estoque = 100;
     $p->categoria()->associate($cat); // Associa uma instância de categoria ao produto
@@ -114,15 +114,15 @@ Route::get('/desassociarcategoriadeproduto', function(){
     return '';
 });
 
-// 2ª FORMA de Associação: Usando o método 'SAVE()' 
+// 2ª FORMA de Associação: Usando o método 'SAVE()' via Categoria
 
 // Associar um Produto a uma 'Categoria' usando o método SAVE()
 Route::get('/adicionarprodutonacategoria/{cat_id}', function($cat_id){
 
-    $cat = Categoria::with('produtos')->find($cat_id);  //Retorna a Categoria especificada com seus Produtos
+    $cat = Categoria::find($cat_id);  // Busca a categoria
 
-    $prod = new Produto();
-    $prod->nome = "Novo produto via Categoria";
+    $prod = new Produto();            // Cria o Produto
+    $prod->nome = "Novo produto via Categoria 2";
     $prod->preco = 43.98;
     $prod->estoque = 50;
 

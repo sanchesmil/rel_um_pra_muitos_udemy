@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Chamar as seeds externas
+        // Chamar as seeds externas na ordem correta
 
         $this->call([
             CategoiraSeeder::class,
